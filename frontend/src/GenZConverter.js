@@ -32,7 +32,7 @@ const GenZConverter = () => {
 
   // Funky title effect
   useEffect(() => {
-    const titles = ["GenZ Converter"];
+    const titles = ["GenZify"];
     let i = 0;
     const intervalId = setInterval(() => {
       document.title = titles[i % titles.length];
@@ -59,7 +59,8 @@ const GenZConverter = () => {
 
     try {
       // Ensure your backend is running on port 5001
-      const response = await fetch('http://localhost:5001/api/convert', {
+      const API_URL = 'http://localhost:5001/api/convert';
+      const response = await fetch(API_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

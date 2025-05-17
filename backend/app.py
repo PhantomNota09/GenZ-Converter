@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, redirect, url_for
 from flask_cors import CORS
 from dotenv import load_dotenv
 import os
@@ -129,6 +129,10 @@ def add_cors_headers(response):
     response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
     print(f"Added CORS headers to response: {response.headers}")
     return response
+
+@app.route('/')
+def home():
+    return redirect(url_for('convert_text'))
 
 # Test endpoint
 @app.route('/api/test', methods=['GET'])

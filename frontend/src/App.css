@@ -1,0 +1,219 @@
+/* Global Styles & Resets */
+:root {
+  --primary-bg: #121212; /* Dark background */
+  --secondary-bg: #1e1e1e; /* Slightly lighter dark for elements */
+  --accent-color: #f0f; /* Neon Magenta/Purple */
+  --accent-hover: #c0c; /* Darker accent for hover */
+  --text-color: #e0e0e0; /* Light grey text */
+  --text-secondary: #a0a0a0; /* Dimmer text */
+  --border-color: #333;
+  --error-color: #ff4d4d;
+  --success-color: #4caf50;
+  --font-family: 'Poppins', sans-serif; /* Added Poppins */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--primary-bg);
+  color: var(--text-color);
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  overflow-x: hidden; /* Prevent horizontal scroll on small screens */
+}
+
+/* App Container */
+.App {
+  width: 100%;
+  max-width: 700px; /* Max width for content */
+  text-align: center;
+}
+
+/* Header */
+.App-header {
+  margin-bottom: 40px;
+  padding: 20px;
+  border-bottom: 2px solid var(--accent-color);
+  background: linear-gradient(135deg, rgba(255,0,255,0.1) 0%, rgba(0,0,0,0) 50%); /* Subtle gradient */
+}
+
+.App-header h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--text-color);
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px var(--accent-color), 0 0 20px var(--accent-color);
+  margin-bottom: 10px;
+}
+
+.App-header .subtitle {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+/* Converter Container */
+.converter-container {
+  background-color: var(--secondary-bg);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(255, 0, 255, 0.15); /* Subtle neon glow */
+  width: 100%;
+}
+
+/* Textarea styles */
+.textarea-container, .output-container {
+  margin-bottom: 25px;
+  text-align: left; /* Align labels to the left */
+}
+
+.textarea-container label, .output-container label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+textarea {
+  width: 100%;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background-color: var(--primary-bg); /* Even darker for textarea */
+  color: var(--text-color);
+  font-family: var(--font-family);
+  font-size: 1rem;
+  resize: vertical; /* Allow vertical resize */
+  min-height: 120px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(255, 0, 255, 0.3); /* Focus glow */
+}
+
+textarea::placeholder {
+  color: #666;
+}
+
+/* Buttons */
+.actions {
+  display: flex;
+  gap: 15px; /* Space between buttons */
+  justify-content: center; /* Center buttons if one is hidden */
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.convert-button {
+  background-color: var(--accent-color);
+  color: var(--primary-bg); /* Dark text on bright button */
+  box-shadow: 0 4px 15px rgba(255, 0, 255, 0.3);
+}
+
+.convert-button:hover:not(:disabled) {
+  background-color: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 0, 255, 0.4);
+}
+
+.convert-button:active:not(:disabled) {
+  transform: translateY(0px);
+}
+
+.convert-button:disabled {
+  background-color: #555;
+  color: #888;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.clear-button {
+  background-color: var(--secondary-bg);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+}
+.clear-button:hover:not(:disabled) {
+  background-color: #333;
+  color: var(--text-color);
+}
+
+.copy-button {
+  display: block; /* Make it full width in its container */
+  width: auto; /* Or set specific width */
+  margin-top: 15px;
+  background-color: var(--secondary-bg);
+  color: var(--accent-color);
+  border: 1px solid var(--accent-color);
+}
+
+.copy-button:hover:not(:disabled) {
+  background-color: var(--accent-color);
+  color: var(--primary-bg);
+}
+
+/* Loading and Error Messages */
+.error-message {
+  color: var(--error-color);
+  background-color: rgba(255, 77, 77, 0.1);
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 15px;
+  font-weight: 500;
+}
+
+/* Footer */
+.App-footer {
+  margin-top: 50px;
+  padding: 20px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  border-top: 1px solid var(--border-color);
+  width: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .App-header h1 {
+    font-size: 2rem;
+  }
+  .App-header .subtitle {
+    font-size: 0.9rem;
+  }
+  .converter-container {
+    padding: 20px;
+  }
+  textarea {
+    min-height: 100px;
+  }
+  button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+  .actions {
+    flex-direction: column; /* Stack buttons on small screens */
+  }
+}

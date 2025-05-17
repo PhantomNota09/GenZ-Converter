@@ -1,4 +1,4 @@
-# 💅 GenZ Converter ✨
+# GenZ Converter ✨
 
 Translates your regular text into authentic GenZ slang using the power of Google's Gemini API. Periodt.
 

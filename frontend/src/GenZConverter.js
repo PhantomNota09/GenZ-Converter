@@ -61,7 +61,7 @@ const GenZConverter = () => {
       // Ensure your backend is running on port 5001
       const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5001/api';
       // const API_URL = 'https://genz-converter-api.onrender.com/api/convert';
-      const response = await fetch(API_URL, {
+      const response = await fetch(`${API_URL}/convert`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -59,7 +59,7 @@ const GenZConverter = () => {
 
     try {
       // Ensure your backend is running on port 5001
-      const API_URL = 'http://localhost:5001/api/convert';
+      const API_URL = 'https://genz-converter-api.onrender.com/api/convert';
       const response = await fetch(API_URL, {
         method: 'POST',
         headers: {

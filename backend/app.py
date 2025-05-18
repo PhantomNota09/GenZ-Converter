@@ -249,9 +249,5 @@ Gen Z Converted text (slang level: {slang_level}%):
         return jsonify({"error": f"An error occurred: {str(e)}"}), 500
 
 if __name__ == '__main__':
-    print("=== GenZ Converter API ===")
-    print("Starting Flask server on http://0.0.0.0:5001")
-    print("CORS is enabled for all origins")
-    print(f"Valid API key: {'Yes' if GEMINI_API_KEY != 'dummy_key_for_testing' else 'No (using dummy key)'}")
-    print(f"Slang Level support: Enabled (0-100%)")
-    app.run(debug=True, host='0.0.0.0', port=5001)
+    port = int(os.environ.get("PORT", 5001))
+    app.run(host='0.0.0.0', port=port)

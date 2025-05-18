@@ -12,7 +12,12 @@ load_dotenv()
 app = Flask(__name__)
 
 # Keep the CORS configuration that works
-CORS(app, origins="*", allow_headers=["Content-Type"], methods=["GET", "POST", "OPTIONS"])
+CORS(app, origins=["https://phantomnota09.github.io", 
+                  "https://phantomnota09.github.io/GenZ-Converter", 
+                  "https://phantomnota09.github.io/GenZ-Converter/",
+                  "http://localhost:3000"],  # Include local development URL too
+     allow_headers=["Content-Type"], 
+     methods=["GET", "POST", "OPTIONS"])
 
 # Verify GEMINI_API_KEY is set
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
